@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kübra ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ff4d6d,#ff758f,#ff8fa3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* Arka plan parıltı */
+
+.parlama{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,0.15);
+    border-radius:50%;
+    filter:blur(100px);
+    animation:hareket 8s infinite alternate;
+}
+
+@keyframes hareket{
+    from{
+        transform:translate(-150px,-100px);
+    }
+    to{
+        transform:translate(150px,100px);
+    }
+}
+
+/* Kart */
+
+.kart{
+    width:90%;
+    max-width:500px;
+    padding:40px 25px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 40px rgba(0,0,0,0.2);
+    text-align:center;
+    position:relative;
+    z-index:2;
+    animation:gel 1.5s ease;
+}
+
+@keyframes gel{
+    from{
+        transform:translateY(50px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+h1{
+    color:white;
+    font-size:45px;
+    margin-bottom:15px;
+    text-shadow:0 0 15px rgba(255,255,255,0.7);
+    animation:buyu 2s infinite alternate;
+}
+
+@keyframes buyu{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.05);
+    }
+}
+
+.yazi{
+    color:white;
+    font-size:21px;
+    line-height:1.7;
+}
+
+/* Buton */
+
+button{
+    margin-top:25px;
+    border:none;
+    padding:15px 30px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* Kalpler */
+
+.kalp{
+    position:absolute;
+    color:white;
+    font-size:25px;
+    animation:dus linear forwards;
+    z-index:1;
+}
+
+@keyframes dus{
+    0%{
+        transform:translateY(-100px);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* Mesaj */
+
+.mesaj{
+    margin-top:20px;
+    color:white;
+    font-size:22px;
+    display:none;
+    animation:fade 1s;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="parlama"></div>
+
+<div class="kart">
+
+<h1>Kübra ❤️</h1>
+
+<div class="yazi">
+Sen hayatıma gelen en güzel şeysin.<br>
+Sen gülünce dünya güzelleşiyor 💖
+</div>
+
+<button onclick="goster()">
+Bana Tıkla ❤️
+</button>
+
+<div class="mesaj" id="mesaj">
+Seni Çok Seviyorum Kübra 💘
+</div>
+
+</div>
+
+<script>
+
+function kalpOlustur(){
+
+    const kalp=document.createElement("div");
+
+    kalp.classList.add("kalp");
+
+    kalp.innerHTML="❤️";
+
+    kalp.style.left=Math.random()*100+"vw";
+
+    kalp.style.animationDuration=(Math.random()*3+2)+"s";
+
+    document.body.appendChild(kalp);
+
+    setTimeout(()=>{
+        kalp.remove();
+    },5000);
+}
+
+setInterval(kalpOlustur,250);
+
+function goster(){
+    document.getElementById("mesaj").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
